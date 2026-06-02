@@ -1,17 +1,14 @@
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import { useAuth } from "../hooks/useAuth";
 
 const loginHeroImage =
   "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=900&auto=format&fit=crop&q=80";
 
-const Login = () => {
-
+const Login = ({ setIsLoggedIn }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
 
-  const { login } = useAuth();
   const navigate = useNavigate();
 
   const handleLogin = (e) => {
@@ -23,12 +20,12 @@ const Login = () => {
       return;
     }
 
-    const success = login(email.trim(), password);
-
-    if (success) {
-      navigate("/");
+    // Validación directa usando los mocks de base de datos en memoria
+    if (email.trim() === "juan@universidad.edu.pe" && password.trim() === "u_001") {
+      setIsLoggedIn(true); // Desbloquea el Navbar global en App.jsx
+      navigate("/");       // Redirige al Feed Principal
     } else {
-      setError("Correo o contrase\u00f1a incorrectos");
+      setError("Correo universitario o ID de estudiante incorrectos");
     }
   };
 
@@ -43,7 +40,7 @@ const Login = () => {
           <aside className="bg-indigo-900 p-8 text-white sm:p-10 flex flex-col justify-between gap-8">
             <div>
               <p className="text-sm font-bold uppercase tracking-wider text-amber-400">
-                {"M\u00f3dulo 1"}
+                Módulo 1
               </p>
               <h1 className="mt-3 text-4xl font-black tracking-tight">
                 Vuelve a <span className="text-amber-400">UniMarket</span>
@@ -87,13 +84,13 @@ const Login = () => {
             <div className="mx-auto max-w-md">
               <div className="mb-8">
                 <span className="inline-flex rounded-full bg-amber-100 px-3 py-1 text-xs font-bold text-amber-700">
-                  {"Iniciar sesi\u00f3n"}
+                  Iniciar sesión
                 </span>
                 <h2 className="mt-4 text-2xl font-black text-gray-950">
                   Entra a tu cuenta
                 </h2>
                 <p className="mt-2 text-sm text-gray-500">
-                  {"Usa tu correo universitario y contrase\u00f1a para continuar."}
+                  Usa tu correo universitario y contraseña para continuar.
                 </p>
               </div>
 
@@ -115,12 +112,12 @@ const Login = () => {
 
                 <div>
                   <label htmlFor="login-password" className="mb-2 block text-sm font-bold text-gray-800">
-                    {"Contrase\u00f1a"}
+                    Contraseña (ID Estudiante)
                   </label>
                   <input
                     id="login-password"
                     type="password"
-                    placeholder={"Ingresa tu contrase\u00f1a"}
+                    placeholder="Ingresa tu ID (ej: u_001)"
                     value={password}
                     onChange={(e) => setPassword(e.target.value)}
                     className={inputClass}
@@ -143,9 +140,9 @@ const Login = () => {
               </form>
 
               <p className="mt-6 text-center text-sm text-gray-500">
-                {"\u00bfA\u00fan no tienes cuenta?"}{" "}
+                ¿Aún no tienes cuenta?{" "}
                 <Link to="/registro" className="font-bold text-indigo-900 hover:text-amber-600">
-                  {"Reg\u00edstrate"}
+                  Regístrate
                 </Link>
               </p>
             </div>
