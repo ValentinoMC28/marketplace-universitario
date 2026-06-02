@@ -16,10 +16,10 @@ import Dashboard from './modulo4/pages/Dashboard';
 import PostForm from './modulo3/components/PostForm';
 import EditPost from './modulo3/pages/EditPost';
 import MyPosts from './modulo3/pages/MyPosts';
+import ChatwootWidget from './components/ChatwootWidget';
 
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
-
   return (
     <BrowserRouter>
       <div className="min-h-screen bg-gray-50 text-gray-800">
@@ -115,7 +115,10 @@ function App() {
           </Routes>
         </main>
       </div>
+      <ChatwootWidget/>
     </BrowserRouter>
+
+    
   );
 }
 
