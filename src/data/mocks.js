@@ -14,7 +14,9 @@ export const mockAnuncios = [
       nombre: "Juan", 
       carrera: "Sistemas" 
     },
-    fechaPublicacion: "2026-05-20"
+    fechaPublicacion: "2026-05-20",
+    //ID del vendedor de prueba para chatwoot
+    vendedorId: "20231889"
   },
   {
     id: 2,
@@ -29,7 +31,9 @@ export const mockAnuncios = [
       nombre: "María Lopez", 
       carrera: "Sistemas" 
     },
-    fechaPublicacion: "2026-05-21"
+    fechaPublicacion: "2026-05-21",
+    //ID del vendedor de prueba para chatwoot
+    vendedorId: "20231889"
   },
   {
     id: 3,
@@ -44,7 +48,9 @@ export const mockAnuncios = [
       nombre: "Carlos Mendoza", 
       carrera: "Electrónica" 
     },
-    fechaPublicacion: "2026-05-22"
+    fechaPublicacion: "2026-05-22",
+    //ID del vendedor de prueba para chatwoot
+    vendedorId: "20231889"
   },
   {
     id: 4,
@@ -59,7 +65,9 @@ export const mockAnuncios = [
       nombre: "Ana Torres", 
       carrera: "Industrial" 
     },
-    fechaPublicacion: "2026-05-23"
+    fechaPublicacion: "2026-05-23",
+    //ID del vendedor de prueba para chatwoot
+    vendedorId: "20231889"
   },
   {
     id: 5,
@@ -74,7 +82,9 @@ export const mockAnuncios = [
       nombre: "María Lopez", 
       carrera: "Sistemas" 
     },
-    fechaPublicacion: "2026-05-24"
+    fechaPublicacion: "2026-05-24",
+    //ID del vendedor de prueba para chatwoot
+    vendedorId: "20231889"
   },
   {
     id: 6,

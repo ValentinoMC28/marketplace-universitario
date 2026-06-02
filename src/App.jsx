@@ -5,7 +5,10 @@ import Register from './modulo1/pages/Register';
 // Importación de tu Módulo 2 (Feed Principal)
 import FeedPrincipal from './modulo2/pages/FeedPrincipal';
 
+import ChatwootWidget from './components/ChatwootWidget';
+
 function App() {
+  
   return (
     <BrowserRouter>
       {/* Fondo claro global para scroll infinito */}
@@ -104,7 +107,10 @@ function App() {
           </Routes>
         </main>
       </div>
+      <ChatwootWidget/>
     </BrowserRouter>
+
+    
   );
 }
 
