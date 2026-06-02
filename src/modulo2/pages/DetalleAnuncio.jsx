@@ -8,6 +8,24 @@ const DetalleAnuncio = () => {
   // Buscamos el anuncio específico que coincida con ese ID
   const anuncio = mockAnuncios.find((item) => item.id === parseInt(id));
 
+  // 🚀 FUNCIÓN DE INYECCIÓN DE DATOS Y APERTURA DE CHATWOOT
+  const handleContactarVendedor = () => {
+    // Verificamos que el script de Chatwoot esté cargado en la ventana global
+    if (window.$chatwoot && anuncio) {
+      
+      // 1. Inyectamos los atributos personalizados del anuncio actual al backend
+      window.$chatwoot.setCustomAttributes({
+        id_vendedor: anuncio.vendedorId,   // Código de alumno (Ej: "20231889")
+        producto_interes: anuncio.titulo  // Título para saber qué quiere comprar
+      });
+
+      // 2. Abrimos la burbuja del chat automáticamente en pantalla
+      window.$chatwoot.toggle("open");
+    } else {
+      console.warn("Chatwoot no está inicializado globalmente o no se hallaron datos.");
+    }
+  };
+
   // Manejo de caso por si el usuario escribe un ID que no existe en la URL
   if (!anuncio) {
     return (
@@ -97,11 +115,13 @@ const DetalleAnuncio = () => {
               <span className="text-xs text-indigo-200 block">Carrera: {anuncio.autor.carrera}</span>
             </div>
 
-            {/* ESPACIO EXCLUSIVO: Aquí es donde tu compañero acoplará su botón de chat */}
-            <div className="bg-white/10 px-3 py-2 rounded-lg text-xs text-indigo-100 border border-white/10 text-center max-w-[150px]">
-              <span className="block font-semibold">Módulo 5</span>
-              <span>Listo para conectar chat</span>
-            </div>
+            {/* 🚀 BOTÓN INTERACTIVO INTEGRADO: Reemplaza la caja fija anterior */}
+            <button
+              onClick={handleContactarVendedor}
+              className="bg-amber-500 hover:bg-amber-400 text-indigo-950 font-extrabold px-4 py-2.5 rounded-xl shadow-sm transition-all transform active:scale-95 text-xs text-center cursor-pointer flex items-center gap-1.5"
+            >
+              💬 Contactar
+            </button>
           </div>
 
         </div>
