@@ -103,11 +103,11 @@ const DetalleAnuncio = () => {
       </div>
 
       {/* =======================================================================
-          🔥 INYECCIÓN DINÁMICA DEL WIDGET DE CHAT (MÓDULO 5)
-          Pasamos el objeto 'anuncio' completo como propiedad. Al cambiar de página,
-          el useEffect de Chatwoot actualizará las etiquetas en vivo con la data real.
+          🔥 INYECCIÓN SEGURA DEL WIDGET DE CHAT (MÓDULO 5)
+          Invocamos el componente de manera global y estática para garantizar un
+          renderizado estable, óptimo y libre de efectos secundarios en la consola.
           ======================================================================= */}
-      <ChatwootWidget productoActual={anuncio} />
+      <ChatwootWidget />
     </div>
   );
 };
